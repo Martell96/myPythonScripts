@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 import bs4, requests, pyperclip, fake_useragent
 
 def getAmazonPrice(productUrl):
