@@ -1,5 +1,7 @@
 #! /usr/bin/env python3
 
+#This script will check your clipboard for an amazon.ca link, and will fetch the title of the item plus the price and print it to the console.
+
 import bs4, requests, pyperclip, fake_useragent
 
 def getAmazonPrice(productUrl):
@@ -13,11 +15,11 @@ def getAmazonPrice(productUrl):
     price = soup.select('#priceblock_ourprice')
     title = soup.select('#productTitle')
 
-    return str('The price for ' + title[0].text.strip() + ' is ' + price[0].text.strip())
+    return str('The price for ' + title[0].text.strip() + ' is ' + price[0].text.strip() + '.')
 
 amazonLink = pyperclip.paste()
 
-if 'amazon' not in amazonLink:
-    raise NameError('Not Amazon Link')
+if 'amazon.ca' not in amazonLink:
+    raise NameError('Not Amazon.ca Link')
 
 print(getAmazonPrice(amazonLink))
